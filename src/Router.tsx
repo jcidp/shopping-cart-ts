@@ -9,7 +9,14 @@ const Router = () => {
         {
             path: "/",
             element: <App />,
-            errorElement: <ErrorPage />,
+            errorElement: (
+              <App>
+                <ErrorPage />
+              </App>
+            ),
+            children: [
+              {index: true, element: <Home />},
+          ],
         },
     ]);
     return <RouterProvider router={router} />;
