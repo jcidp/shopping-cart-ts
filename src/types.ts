@@ -15,4 +15,10 @@ interface Product extends ProductResponse {
   cartQuantity: number,
 }
 
-export type { ProductResponse, Product }
+interface OutletContext {
+  products: Product[],
+  error: Error | null,
+  isLoading: boolean,
+}
+
+export type { ProductResponse, Product, OutletContext }

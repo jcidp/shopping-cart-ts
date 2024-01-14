@@ -1,0 +1,19 @@
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  column-gap: 1em;
+}
+
+.h2 {
+  text-align: center;
+}
+
+.p {
+  margin: 1em 0;
+}
+
+.flexGrow {
+  flex-grow: 1;
+  display: grid;
+  place-content: center;
+}
