@@ -1,12 +1,14 @@
 import styles from './App.module.css'
-import Router from './Router'
 import Footer from './components/Footer'
+import Header from './components/Header'
+import Home from './components/Home'
 
 function App() {
   return (
     <>
+      <Header />
       <main className={styles.main}>
-        <Router />
+        <Home />
       </main>
       <Footer />
     </>
