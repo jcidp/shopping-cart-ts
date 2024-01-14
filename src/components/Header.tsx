@@ -9,9 +9,11 @@ interface HeaderProps extends OutletContext {
 }
 
 const Header = ({products, error, isLoading, showCart, setShowCart, handleAddToCart, handleRemoveFromCart}: HeaderProps) => {
-  const toggleShowCart = () => {
-    // TODO: Refactor this to use useRef
-    const sidebar = document.querySelector(`.${styles.cartSideBar}`);
+  const toggleShowCart = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    if (!(e.target instanceof HTMLElement || e.target instanceof SVGElement)) return;
+    const header = e.target.closest("header");
+    if (!header) return;
+    const sidebar = header.querySelector("section");
     if (showCart) {
       if (!sidebar) return;
       sidebar.classList.add(styles.shred);

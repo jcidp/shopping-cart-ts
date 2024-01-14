@@ -4,6 +4,7 @@ import ErrorPage from "./components/ErrorPage";
 import Home from "./components/Home";
 import Shop from "./components/Shop";
 import CartRoute from "./components/CartRoute";
+import ThankYou from "./components/ThankYou";
 
 
 const Router = () => {
@@ -20,6 +21,7 @@ const Router = () => {
               {index: true, element: <Home />},
               {path: "shop", element: <Shop />},
               {path: "cart", element: <CartRoute />},
+              {path: "thank-you", element: <ThankYou />}
           ],
         },
     ]);

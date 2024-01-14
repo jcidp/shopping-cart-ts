@@ -1,0 +1,16 @@
+.thankYouPage {
+  text-align: center;
+  line-height: 2;
+}
+
+.btnPrimary {
+  composes: btnPrimary from "/src/index.css";
+  margin-inline: auto;
+  margin-top: 0.5rem;
+}
+
+.flexGrow {
+  flex-grow: 1;
+  display: grid;
+  place-content: center;
+}

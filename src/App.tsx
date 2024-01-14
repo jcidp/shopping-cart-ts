@@ -16,6 +16,9 @@ function App(props: AppProps = {}) {
   const [showCart, setShowCart] = useState(false);
   const location = useLocation();
 
+  if (location.pathname === "/thank-you" && products.reduce((sum, product) => sum + product.cartQuantity, 0) > 0) {
+    setProducts(products.map(product => ({...product, cartQuantity: 0})));
+  }
   useEffect(() => {
     if (location.pathname === "/") setShowCart(false);
   }, [location.pathname]);
