@@ -3,6 +3,7 @@ import App from "./App";
 import ErrorPage from "./components/ErrorPage";
 import Home from "./components/Home";
 import Shop from "./components/Shop";
+import CartRoute from "./components/CartRoute";
 
 
 const Router = () => {
@@ -18,6 +19,7 @@ const Router = () => {
             children: [
               {index: true, element: <Home />},
               {path: "shop", element: <Shop />},
+              {path: "cart", element: <CartRoute />},
           ],
         },
     ]);

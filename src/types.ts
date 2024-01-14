@@ -26,6 +26,7 @@ interface OutletContext {
   error: Error | null,
   isLoading: boolean,
   handleAddToCart: handleAddToCart,
+  handleRemoveFromCart?: handleRemoveFromCart,
 }
 
 export type { 

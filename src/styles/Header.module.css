@@ -8,35 +8,35 @@
   padding: 0.25em 0;
 
   & .container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      text-align: center;
-      width: min(1200px, 100% - 4rem);
-      margin-inline: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    width: min(1200px, 100% - 4rem);
+    margin-inline: auto;
   }
 
   & .underline {
-      position: absolute;
-      bottom: -2px;
-      left: 50%;
-      width: 4em;
-      border-top: 1px solid black;
-      transform-origin: -50%;
-      transition: transform 0.5s ease-in-out;
-      transform: scaleX(0) translateX(-50%);
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 4em;
+    border-top: 1px solid black;
+    transform-origin: -50%;
+    transition: transform 0.5s ease-in-out;
+    transform: scaleX(0) translateX(-50%);
   }
 
   & .underlineCart {
-      width: 3em;
-      transform: scaleX(0) translate(-2em, 1px);
+    width: 3em;
+    transform: scaleX(0) translate(-2em, 1px);
   }
 
   & .selected {
-      transform: scaleX(1) translateX(-50%);
+    transform: scaleX(1) translateX(-50%);
   }
 
   & .selectedCart {
-      transform: scaleX(1) translate(-2em, 1px);
+    transform: scaleX(1) translate(-2em, 1px);
   }
 }
 
@@ -64,11 +64,11 @@
   transform: translate(-0.75em, 0.125em);
 
   & svg {
-      width: 1.5em;
+    width: 1.5em;
   }
 
   &:hover {
-      cursor: pointer;
+    cursor: pointer;
   }
 }
 
@@ -79,4 +79,58 @@
   background-color: lightyellow;
   border-radius: 50%;
   padding: 0 0.25rem;
+}
+
+.cartSideBar {
+  position: fixed;
+  right: 0;
+  top: 2.7em;
+  bottom: 0;
+  border-left: 1px solid black;
+  width: 25%;
+  max-width: 300px;
+  min-width: 200px;
+  font-size: 0.875em;
+  background-color: white;
+  padding: 1em 1em;
+  overflow-y: auto;
+  animation: 0.5s ease-out forwards;
+  animation-name: slide-in;
+}
+
+.shred {
+  animation-name: slide-out;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    .container {
+      grid-template-columns: 1fr 2fr;
+      width: 100%;
+    }
+  }
+
+  .h1 {
+    margin: 0 0.5em;
+  }
 }

@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import styles from './App.module.css'
 import Footer from './components/Footer'
 import Header from './components/Header'
@@ -14,6 +14,11 @@ function App(props: AppProps = {}) {
   const [products, setProducts] = useState<Product[]>([]);
   const {data, error, isLoading} = useFetchAPI();
   const [showCart, setShowCart] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/") setShowCart(false);
+  }, [location.pathname]);
 
   useEffect(() => {
     if (data) {
@@ -23,7 +28,7 @@ function App(props: AppProps = {}) {
   }, [data])
 
   const handleAddToCart: handleAddToCart = (e, quantity, isEdit) => {
-    if (!(e.target instanceof HTMLElement)) return;
+    if (!(e.target instanceof HTMLElement || e.target instanceof SVGElement)) return;
     const btn = e.target.closest("button");
     if (!btn?.dataset?.productId) return;
     const id = +btn.dataset.productId;
@@ -36,7 +41,7 @@ function App(props: AppProps = {}) {
   };
 
   const handleRemoveFromCart: handleRemoveFromCart = (e) => {
-    if (!(e.target instanceof HTMLElement)) return;
+    if (!(e.target instanceof HTMLElement || e.target instanceof SVGElement)) return;
     const btn = e.target.closest("button");
     if (!btn?.dataset?.productId) return;
     const id = +btn.dataset.productId;
@@ -48,12 +53,12 @@ function App(props: AppProps = {}) {
 
   return (
     <>
-      <Header />
+      <Header products={products} error={error} isLoading={isLoading} showCart={showCart} setShowCart={setShowCart} handleAddToCart={handleAddToCart} handleRemoveFromCart={handleRemoveFromCart} />
       <main className={styles.main}>
         {
           props.children ?
           props.children : 
-          <Outlet context={{products, error, isLoading, showCart, handleAddToCart, handleRemoveFromCart}}/>
+          <Outlet context={{products, error, isLoading, handleAddToCart, handleRemoveFromCart}}/>
         }
       </main>
       <Footer />

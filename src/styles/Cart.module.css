@@ -1,0 +1,33 @@
+.summary {
+  display: grid;
+  place-items: center;
+}
+
+.h2 {
+  text-align: center;
+}
+
+.p {
+  margin: 1em 0;
+}
+
+.cartBtn {
+  width: 10em;
+  margin: 0.5em 0;
+}
+
+.btnPrimary {
+  composes: btnPrimary from "/src/index.css";
+  composes: cartBtn;
+}
+
+.btnSecondary {
+  composes: btnSecondary from "/src/index.css";
+  composes: cartBtn;
+}
+
+.flexGrow {
+  flex-grow: 1;
+  display: grid;
+  place-content: center;
+}
