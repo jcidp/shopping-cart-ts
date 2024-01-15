@@ -2,7 +2,7 @@ import styles from "../styles/ProductCard.module.css";
 import { useEffect, useState } from "react";
 import { Product, handleAddToCart, handleRemoveFromCart } from "../types";
 
-interface ProductCardProps {
+export interface ProductCardProps {
   product: Product,
   inCart?: boolean,
   handleAddToCart: handleAddToCart,

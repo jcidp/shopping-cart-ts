@@ -2,10 +2,10 @@ interface ProductResponse {
   id: number,
   title: string,
   price: number,
-  description: string,
-  category: string,
+  description?: string,
+  category?: string,
   image: string,
-  rating: {
+  rating?: {
     rate: number,
     count: number,
   },
