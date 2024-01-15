@@ -4,4 +4,3 @@ An e-commerce store with a shopping cart built with React + TypeScript using Vit
 
 Todo:
 - Add animations / transitions
-- Add tests
